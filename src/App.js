@@ -86,10 +86,10 @@ export default function App() {
           setIsLoading(true);
           setError("");
 
-          const res = await fetch(
-            `https://api.codetabs.com/v1/proxy?quest=http://www.omdbapi.com/?apikey=${KEY}&s=${query}`,
-            { signal: controller.signal }
-          );
+       const res = await fetch(
+  `https://api.allorigins.win/raw?url=${encodeURIComponent('http://www.omdbapi.com/?apikey=${KEY}&s=${query}')}`,
+  { signal: controller.signal }
+);
 
           if (!res.ok)
             throw new Error("Something went wrong with fetching movies");
@@ -302,9 +302,9 @@ function MovieDetails({ selectedId, onCloseMovie, onAddWatched, watched }) {
   useEffect(() => {
     async function getMovieDetail() {
       setIsLoading(true);
-      const res = await fetch(
-        `https://api.codetabs.com/v1/proxy?quest=http://www.omdbapi.com/?apikey=${KEY}&i=${selectedId}`
-      );
+     const res = await fetch(
+  `https://api.allorigins.win/raw?url=${encodeURIComponent('http://www.omdbapi.com/?apikey=${KEY}&i=${selectedId}')}`
+);
 
       if (!res.ok) {
         setIsLoading(false);
