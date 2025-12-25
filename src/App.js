@@ -85,10 +85,7 @@ export default function App() {
         try {
           setIsLoading(true);
           setError("");
-          const res = await fetch(
-            `http://www.omdbapi.com/?apikey=${KEY}&s=${query}`,
-            { signal: controller.signal }
-          );
+          `https://api.codetabs.com/v1/proxy?quest=http://www.omdbapi.com/?apikey=${KEY}&s=${query}`
 
           if (!res.ok)
             throw new Error("something went wrong with fetching movies");
@@ -323,9 +320,7 @@ function MovieDetails({ selectedId, onCloseMovie, onAddWatched, watched }) {
     function () {
       async function getMovieDetail() {
         setIsLoading(true);
-        const res = await fetch(
-          `http://www.omdbapi.com/?apikey=${KEY}&i=${selectedId}`
-        );
+        `https://cors.lol/${`http://www.omdbapi.com/?apikey=$$ {KEY}&s= $${query}`}`
         const data = await res.json();
         setMovie(data);
         setIsLoading(false);
